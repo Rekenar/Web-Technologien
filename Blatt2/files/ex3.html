@@ -2,22 +2,22 @@
 
 <head>
     <style>
-        /* uncomment one rule at at time and explaion the result.
-#content, p { color: red; }
-#content p { color: red; }
-#content h2 p { color: red; }
-#content > p { color: red; }
-#content h1 p { color: red; }
-div p:nth-child(2) { color: red; }
-div p:nth-child(2n) { color: red; }
-h2 {color: red;}
-div.othercontent > p:first-child { color:red; }
-div.othercontent h1 + p  { color:red; }
-div.othercontent h1 ~ p { color:red; }
-a[title^=other]:link { color:red; }
-body a[title^=other]:link { color:red; }
-.othercontent * p { color: red; }
-*/
+       
+#content, p { color: red; }							<!-- Der Inhalt in allen p elementen wird rot -->
+#content p { color: red; }							<!-- Der Inhalt in allen p elementen (mit id="content") wird rot -->
+#content h2 p { color: red; }						<!-- Der Inhalt in allen p elementen (mit id="content" in einem h2 element) wird rot -->
+#content > p { color: red; }    					<!-- Der Inhalt in allen p elementen (mit Parent id="content") wird rot -->
+#content h1 p { color: red; }						<!-- Der Inhalt in allen p elementen (mit id="content" in einem h1 element) wird rot -->
+div p:nth-child(2) { color: red; }					<!-- Der Inhalt in allen p elementen (die das zweite Kind ihres Parent sind) wird rot -->
+div p:nth-child(2n) { color: red; }					<!-- Der Inhalt in allen p elementen (jedes zweite Kind ihres Parent sind) wird rot -->
+h2 {color: red;}									<!-- Der Inhalt in allen h2 elementen wird rot -->
+div.othercontent > p:first-child { color:red; }		<!-- Der Inhalt in allen p elementen (mit Parent div class="othercontent" + erstes Kind) wird rot -->
+div.othercontent h1 + p  { color:red; }				<!-- Der Inhalt in allen p elementen (mit Parent div class="othercontent" +Vorgänger h1 element) wird rot -->
+div.othercontent h1 ~ p { color:red; }				<!-- Der Inhalt in jedem p elementen (mit Parent div class="othercontent" +Vorgänger h1 element) wird rot -->
+a[title^=other]:link { color:red; }					<!-- Der Inhalt in allen a elementen (mit title="other..." + noch nicht benutzter link) wird rot -->
+body a[title^=other]:link { color:red; }			<!-- Der Inhalt in allen a elementen (mit title="other..." + noch nicht benutzter link + Parent=body) wird rot -->
+.othercontent * p { color: red; }					<!-- Der Inhalt in allen p elementen (mit Parent welcher Kind von Klasse .othercontent ist)wird rot -->
+
     </style>
 
 </head>
@@ -49,8 +49,8 @@ body a[title^=other]:link { color:red; }
         </h1>
     </div>
 
-    <p> Text in paragraph as a child of body</p> <a title="somelink" href="#">Some Link</a> <a title="otherlink"
-        href="#other">Some other Link</a>
+    <p> Text in paragraph as a child of body</p> <a title="somelink" href="#">Some Link</a> <a title="otherlink" href="#othe">Some other Link</a>
+        
 </body>
 
 </html>

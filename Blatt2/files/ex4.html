@@ -1,9 +1,91 @@
 <html lang="de">
 
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>CSS in Action</title>
 	<style>
-
+		header{
+			display: flex;
+			flex-direction:row;
+			justify-content:space-between;
+			background-color: rgb(187,204,232);
+			font-family:verdana, sans-serif;
+		}
+		#logoImage{
+			margin: 10px;
+			height: 4em;
+		}
+		header h1{
+			margin: 10px;
+			height: 2em;
+		}
+		nav{
+			background-color: rgb(20,90,204);
+		}
+		nav ul{
+			display: flex;
+			flex-direction:row;
+			justify-content:flex-start;
+		}
+		nav ul li{
+			list-style-type: none;
+			padding: 10px 20px 10px 0px;
+		}
+		nav ul li:nth-child(2){
+			color: red;
+		}
+		div.content section:nth-child(2) h1{
+			color: red;
+		}
+		div.content section h1{
+			font-family:verdana, sans-serif;
+			font-size: 1.5em;
+		}
+		footer{
+			background-color: rgb(20,90,204);
+		}
+		footer ul{
+			display: flex;
+			flex-direction:row;
+			justify-content:center;
+		}
+		footer ul li{
+			list-style-type: none;
+			padding: 15px 15px 15px 15px;
+		}
+		div.content section:nth-child(2n) img{
+			float: right;
+			clear: right;
+		}
+		div.content section img{
+			width: 100px;
+		}
+		a[href^="http"]::after{
+			content:"(external)"
+		}
+		@media(max-width:600px) {
+		footer ul li{
+			text-align: center;
+			list-style-type: none;
+			padding: 10px 20px 10px 20px;
+			border-radius: 25px;
+			width: 60px;
+			height: 20px;
+			background-color: #ccc;
+		}
+		nav ul{
+			display: flex;
+			flex-direction:column;
+		}
+		nav ul li{
+			text-align: center;
+			list-style-type: none;
+			padding: 10px 20px 10px 0px;
+		}
+		img{
+			display: none;
+		}
+		}
 	</style>
 </head>
 
