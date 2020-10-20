@@ -2,11 +2,11 @@
 
 <head>
     <style>
-       
-#content, p { color: red; }							<!-- Der Inhalt in allen p elementen wird rot -->
-#content p { color: red; }							<!-- Der Inhalt in allen p elementen (mit id="content") wird rot -->
+/*    
+#content, p { color: red; }*/ 							/*<!-- Der Inhalt in allen p elementen wird rot -->*/
+#content p { color: red; }/*						<!-- Der Inhalt in allen p elementen (mit id="content") wird rot -->
 #content h2 p { color: red; }						<!-- Der Inhalt in allen p elementen (mit id="content" in einem h2 element) wird rot -->
-#content > p { color: red; }    					<!-- Der Inhalt in allen p elementen (mit Parent id="content") wird rot -->
+#content > p { color: red; }   						<!-- Der Inhalt in allen p elementen (mit Parent id="content") wird rot -->
 #content h1 p { color: red; }						<!-- Der Inhalt in allen p elementen (mit id="content" in einem h1 element) wird rot -->
 div p:nth-child(2) { color: red; }					<!-- Der Inhalt in allen p elementen (die das zweite Kind ihres Parent sind) wird rot -->
 div p:nth-child(2n) { color: red; }					<!-- Der Inhalt in allen p elementen (jedes zweite Kind ihres Parent sind) wird rot -->
@@ -17,7 +17,7 @@ div.othercontent h1 ~ p { color:red; }				<!-- Der Inhalt in jedem p elementen (
 a[title^=other]:link { color:red; }					<!-- Der Inhalt in allen a elementen (mit title="other..." + noch nicht benutzter link) wird rot -->
 body a[title^=other]:link { color:red; }			<!-- Der Inhalt in allen a elementen (mit title="other..." + noch nicht benutzter link + Parent=body) wird rot -->
 .othercontent * p { color: red; }					<!-- Der Inhalt in allen p elementen (mit Parent welcher Kind von Klasse .othercontent ist)wird rot -->
-
+*/
     </style>
 
 </head>
