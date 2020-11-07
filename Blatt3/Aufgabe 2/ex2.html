@@ -1,0 +1,107 @@
+<html>
+
+<head>
+    <style>
+        input:invalid {
+            color: red;
+        }
+
+        textarea:invalid {
+            color: red;
+        }
+		form{
+			display: inline-block;
+		}
+		#idField:focus{
+			background-color: lightblue;
+		}
+		body {
+			text-align: center;
+		}
+
+    </style>
+	<script src="ex2.js"></script>
+</head>
+
+<body>
+    <h1>Your Glass Order</h1>
+	<form action="mailto:phfoessl@edu.aau.at?subject=Glas Order" method="post" enctype="text/plain">
+	<fieldset>
+		<fieldset>
+			<legend>Persönliche Daten</legend>
+			<label for="titleField">Titel</label><br>
+			<input type="text" id="idField" name="titleField" required><br>
+			
+			<label for="nameField">Name</label><br>
+			<input type="text" id="idField" name="nameField" required><br>
+			
+			<label for="addressField">Addresse</label><br>
+			<input type="text" id="idField" name="addressField" required><br>
+			
+			<label for="emailField">Email</label><br>
+			<input type="email" id="idField" name="emailField" required><br>
+			
+			<label for="phoneField">Phone</label><br>
+			<input type="text" id="idField" name="phoneField"><br>
+		</fieldset><br>
+		
+		<fieldset>
+			<legend>Glasspezifikation</legend>
+			<label for="quantityField">Anzahl</label><br>
+			<select name="quantityField" required>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+				<option value="10">10</option>
+			</select><br/>
+			
+			<label for="widthField">Breite</label><br>
+			<input type="number" value="1" id="idField" name="widthField" min="1" max="200" required><br>
+			
+			<label for="heightField">Höhe</label><br>
+			<input type="number" value="1" id="idField" name="heightField" min="1" max="200" required><br>
+			
+			<label for="colorField">Farbe</label><br>
+			<input type="color" value="#000000" id ="colorField" name="colorField" required><br>
+			
+			<label for="thicknessField">Durchmesser</label><br>
+			
+				<input type="radio" name="mmField" value="4" required>
+				<label for="mmField">4mm</label><br>
+				
+				<input type="radio" name="mmField" value="6" required>
+				<label for="mmField">6mm</label><br>
+				
+				<input type="radio" name="mmField" value="8" required>
+				<label for="mmField">8mm</label><br>
+				
+				<input type="radio" name="mmField" value="12" required>
+				<label for="mmField">12mm</label><br>
+			
+		</fieldset><br>
+		
+		<fieldset>
+			<legend>Preis</legend>
+			<input type="text" id = "priceField" name="price" value="Preis berechnen" onClick="calculate()" readonly="readonly">
+			
+		</fieldset>
+		
+		<fieldset>
+			<legend>Kommentar</legend>
+			<input type="text" name="inputField" maxlength="700" size="75"><br>
+		</fieldset>
+		
+		<br><input type="submit"><br>
+		<br><input type="reset">
+		</fieldset>
+	</form>
+
+</body>
+
+</html>
