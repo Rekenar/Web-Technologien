@@ -1,0 +1,103 @@
+Exercise 3 – Plain JavaScript Objects
+
+a) Define a JavaScript object variable having a first name, last name, and a gender.
+Define a method that takes such variables as input and creates a welcome message
+as follows: “Dear Mr. (or Ms.) first-name last-name, welcome to the Web
+Technologies course.”
+
+	let person = {
+		firstname:"Philipp", 
+		lastname:"Fößl", 
+		gender:"M"};
+	function greeting(firstname, lastname, gender){
+		if(gender === "M"){
+			console.log("Dear Mr " + firstname + " " + lastname + ", welcome to the Web Technologies course.");
+		}else{
+			console.log("Dear Ms " + firstname + " " + lastname + ", welcome to the Web Technologies course.");
+		}
+	}
+	greeting(person.firstname, person.lastname, person.gender);
+
+b) An object containing the information about the companies is provided as follows:
+
+		const companies = {
+		data: [
+		{ name: "Google", id: "GOOGL" },
+		{ name: "Microsoft", id: "MSFT" },
+		{ name: "Oracle", id: "ORCL" }
+		],
+		count: 3
+		};
+
+
+Write a JavaScript function that accepts such object as a parameter and returns an array of HTML radio button elements including their labels.
+
+
+["<input id=\"GOOGL\" type=\"radio\" name=\"company\" value=\"GOOGL\"><label
+for=\"GOOGL\">Google</label>",
+other fragments... ]
+
+
+c) Write JavaScript functions called “addNew” and “delete”. addNew adds new
+company information to a JavaScript object given in task b), delete deletes the
+company information from such object. Make sure that company IDs are kept unique
+within the object. These functions have to be called as follows:
+companies.addNew("Adobe", "ADBE");
+companies.delete("ADBE");
+
+		const companies = {
+				data: [
+				{ name: "Google", id: "GOOGL" },
+				{ name: "Microsoft", id: "MSFT" },
+				{ name: "Oracle", id: "ORCL" }
+				],
+				count: 3
+		};
+
+		companies.addNew = function(name, id) {
+			this.data.push({"name": name, "id": id});
+			this.count++;
+		}
+		companies.delete = function(id){
+			for(let i = 0; i < this.count;i++){
+				if(this.data[i].id === id){
+					this.data.splice(i,1);
+					this.count--;
+				}
+			}
+		}
+
+		function radio(companies){
+			let data = companies.data;
+			
+			for(let i = 0; i < companies.count;i++){
+				companiesRadio[i] = new Array(2);
+				
+				var newRadio = document.createElement("Input");
+				newRadio.setAttribute("type","radio");
+				newRadio.setAttribute("name","company");
+				newRadio.setAttribute("id",data[i].id);
+				newRadio.setAttribute("value",data[i].name);
+				
+				
+				var label = document.createElement("label");
+				label.setAttribute("value",data[i].name);
+				label.innerText = data[i]["name"];
+				
+				companiesRadio[i][0] = newRadio;
+				companiesRadio[i][1] = label;
+				//document.body.appendChild(newRadio);
+				//document.body.appendChild(label);
+			}
+		}
+		let companiesRadio = [];
+		companies.addNew("Amazon", "AMZON");
+		//console.log(companies.data[3]);
+		//companies.delete("AMZON");
+		//console.log(companies.data[3]);
+		radio(companies);
+		console.log(companiesRadio);
+
+
+
+

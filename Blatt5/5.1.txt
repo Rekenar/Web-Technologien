@@ -1,0 +1,86 @@
+Exercise 1 – Events
+What is event bubbling and event capturing?
+How can you specify what method to use?
+How can you stop the propagation of events?
+What is the difference between this, event.target and event.currentTarget?
+What happens if parent elements have event listeners attached?
+What happens if parent and child elements have event listeners attached?
+
+Demonstrate the different behaviour with the following examples:
+
+
+a) Extend the example in ex1/events.html for demonstrating bubbling, capturing
+and stopPropagation with event listeners defined on the outer and additionally
+on the inner div. Create multiple files for demonstrating the various options.
+
+
+
+b) The file ex1/eventsParameter.html contains the function
+clicked(e,mode). Use this function as the event listener for the outer and inner
+div. However, now you need to pass the parameter mode = ‘log’ in order to
+create console output. How can you pass parameters to functions used as event
+handlers?
+
+
+
+
+
+c) The script in the file ex1/events2.html should display the first name and last
+name of the person as content of the corresponding div, when the div is clicked.
+Unfortunately, it does not work. Explain why this happens and provide two solutions:
+
+a. Using an arrow function for calling the actual event handler [ MDN ].
+
+class Person {
+            constructor(firstname, lastname, element) {
+                this.firstname = firstname;
+                this.lastname = lastname;
+                this.elem = element;
+				this.elem.addEventListener('click', (e) => {this.sayHello(e);});
+            }
+			
+			sayHello(e) {
+                console.log(e); 	// explain me!						//Gibt Event aus
+                console.log(this); 	// explain me!						//Gibt Element aus
+                this.elem.innerHTML = this.firstname;
+                this.elem.innerHTML += " " + this.lastname;
+            }
+        }
+
+b. Using the bind() method [ MDN ]. 
+
+        class Person {
+            constructor(firstname, lastname, element) {
+                this.firstname = firstname;
+                this.lastname = lastname;
+                this.elem = element;
+				this.elem.addEventListener('click', this.sayHello.bind(this));
+            }
+			
+			sayHello(e) {
+                console.log(e); 	// explain me!
+                console.log(this); 	// explain me!
+                this.elem.innerHTML = this.firstname;
+                this.elem.innerHTML += " " + this.lastname;
+            }
+        }
+		
+
+
+	class Person {
+            constructor(firstname, lastname, element) {
+                this.firstname = firstname;
+                this.lastname = lastname;
+                this.elem = element;
+				this.elem.addEventListener('click', e => {this.sayHello.call(this,e);});
+            }
+			
+			sayHello(e) {
+                console.log(e); 	// explain me!
+                console.log(this); 	// explain me!
+                this.elem.innerHTML = this.firstname;
+                this.elem.innerHTML += " " + this.lastname;
+            }
+        }
+
+

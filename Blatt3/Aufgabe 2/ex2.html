@@ -9,46 +9,40 @@
         textarea:invalid {
             color: red;
         }
+		
 		form{
-			display: inline-block;
-		}
-		#idField:focus{
-			background-color: lightblue;
-		}
-		body {
 			text-align: center;
 		}
-
+		
+		#backgroundFocus:focus {
+			background-color: lightblue;
+		}
+		
     </style>
-	<script src="ex2.js"></script>
+	<script src="myScript.js" defer="true"></script>
 </head>
 
 <body>
     <h1>Your Glass Order</h1>
-	<form action="mailto:phfoessl@edu.aau.at?subject=Glas Order" method="post" enctype="text/plain">
-	<fieldset>
+
+    <form action="mailto:yourmail@edu.aau.at?subject=Glas Order" method="post" enctype="text/plain">
 		<fieldset>
 			<legend>Persönliche Daten</legend>
-			<label for="titleField">Titel</label><br>
-			<input type="text" id="idField" name="titleField" required><br>
-			
-			<label for="nameField">Name</label><br>
-			<input type="text" id="idField" name="nameField" required><br>
-			
-			<label for="addressField">Addresse</label><br>
-			<input type="text" id="idField" name="addressField" required><br>
-			
-			<label for="emailField">Email</label><br>
-			<input type="email" id="idField" name="emailField" required><br>
-			
-			<label for="phoneField">Phone</label><br>
-			<input type="text" id="idField" name="phoneField"><br>
-		</fieldset><br>
-		
+			<label for="Titel">Titel</label><br>
+			<input type="text" id="backgroundFocus" name="Titel" required><br>
+			<label for="Name">Name</label><br>
+			<input type="text" id="backgroundFocus" name="Name" required><br>
+			<label for="Adresse">Adresse</label><br>
+			<input type="text" id="backgroundFocus" name="Adresse" required><br>
+			<label for="Email">Email</label><br>
+			<input type="email" id="backgroundFocus" name="Email" required><br>
+			<label for="Telefonnummer">Telefonnummer</label><br>
+			<input type="text" id="backgroundFocus" name="Nummer"><br>
+		</fieldset>
 		<fieldset>
-			<legend>Glasspezifikation</legend>
-			<label for="quantityField">Anzahl</label><br>
-			<select name="quantityField" required>
+			<legend>Glass</legend>
+			<label for="Menge">Menge</label><br>
+			<select name="menge" id="menge" required>
 				<option value="1">1</option>
 				<option value="2">2</option>
 				<option value="3">3</option>
@@ -59,48 +53,48 @@
 				<option value="8">8</option>
 				<option value="9">9</option>
 				<option value="10">10</option>
-			</select><br/>
-			
-			<label for="widthField">Breite</label><br>
-			<input type="number" value="1" id="idField" name="widthField" min="1" max="200" required><br>
-			
-			<label for="heightField">Höhe</label><br>
-			<input type="number" value="1" id="idField" name="heightField" min="1" max="200" required><br>
-			
-			<label for="colorField">Farbe</label><br>
-			<input type="color" value="#000000" id ="colorField" name="colorField" required><br>
-			
-			<label for="thicknessField">Durchmesser</label><br>
-			
-				<input type="radio" name="mmField" value="4" required>
-				<label for="mmField">4mm</label><br>
+			</select><br>
 				
-				<input type="radio" name="mmField" value="6" required>
-				<label for="mmField">6mm</label><br>
-				
-				<input type="radio" name="mmField" value="8" required>
-				<label for="mmField">8mm</label><br>
-				
-				<input type="radio" name="mmField" value="12" required>
-				<label for="mmField">12mm</label><br>
 			
-		</fieldset><br>
+			<label for="Breite">Breite</label><br>
+			<input type="number" id="backgroundFocus" name="Breite" max="200" required><br>
+			
+			<label for="Länge">Länge</label><br>
+			<input type="number" id="backgroundFocus" name="Länge" max="200" required><br>
+			
+			<label for="RGB">Farbwahl</label><br>
+			<input type="color" id="rgb" name="rgb" required><br>
+			
+			<label for="Dicke">Dicke</label><br>
+			
+			<input type="radio" id="4" name="Dicke" required>
+			<label for="4">4mm</label><br>
+			<input type="radio" id="6" name="Dicke" required>
+			<label for="6">6mm</label><br>
+			<input type="radio" id="8" name="Dicke" required>
+			<label for="8">8mm</label><br>			
+			<input type="radio" id="12" name="Dicke" required>		
+			<label for="12">12mm</label><br>
 		
+		</fieldset>
 		<fieldset>
-			<legend>Preis</legend>
-			<input type="text" id = "priceField" name="price" value="Preis berechnen" onClick="calculate()" readonly="readonly">
-			
-		</fieldset>
+			<legend>Weiteres</legend>
+			<label for="endtext">Kommentar</label><br>
+			<input type="text" id="endtext" name="endtext" maxlength="700" size="80">
 		
+		
+		</fieldset>
 		<fieldset>
-			<legend>Kommentar</legend>
-			<input type="text" name="inputField" maxlength="700" size="75"><br>
+			<label for="preis">Preis</label>
+			<input type="text" id="preis" name="preis" value="~"  readonly><br>
+			<input type="button" value="berechnen" id="berechnen">
 		</fieldset>
 		
-		<br><input type="submit"><br>
-		<br><input type="reset">
-		</fieldset>
-	</form>
+		<input type="reset">
+        <input type="submit">
+    </form>
+
+
 
 </body>
 

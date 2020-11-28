@@ -1,0 +1,154 @@
+Exercise 4 – JavaScript Prototypes 
+
+a) Create an object for an image that sets width, height, and bitdepth (number of bits
+used to save color information for every pixel) by using the JSON syntax. Extend the
+object by a function computeSize(), which computes the raw size needed for the
+image (in bytes) and stores it in the instance variable rawsize. Furthermore, the
+function should also compute the number of pixels and save it in the instance
+variable pixels. Call the function for the object and print the values of both
+instance variables to the console.
+
+		var image = {"width": 500, "height": 500, "bitdepth": 8};
+
+		image.computeSize = function() {
+			this.rawsize = (this.width * this.height * this.bitdepth)/8;
+			this.pixels = this.width * this.height;
+		}
+		image.computeSize();
+		console.log(image.rawsize + " Byte");
+		console.log(image.pixels + "px");
+
+
+
+b) Define a constructor function Image that allows to create objects like above (with
+width, height, and bitdepth). Instead of a computeSize() function, set
+rawsize and pixels already in the constructor function. Additionally, define a
+function print()within the Image constructor function. The function should print
+all properties and values of the object (using a for loop) to the console. Create a few
+objects to test the print function.
+
+		function image(width, height, bitdepth){
+			this.width = width;
+			this.height = height;
+			this.bitdepth = bitdepth;
+			this.rawsize = width * height * bitdepth;
+			this.pixels = width * height;
+			this.print = function() {
+				for(let val in this){
+					if(val !== "print"){
+						console.log(this[val]);
+					}
+				}
+			}
+		}
+		var image1 = new image(500,500,8);
+		var image2 = new image(650,450,6);
+		var image3 = new image(400,800,4);
+
+		image1.print();
+		image2.print();
+		image3.print();
+
+
+
+c) Extend the prototype of Image with another function printMore(), which prints
+everything print() does, but also if the image is portrait or landscape, depending
+on the ratio between width and height. Test your implementation with the objects
+created in Exercise 4b. What is the difference between print() and
+printMore()? Can you make it refer to different functions during runtime by
+means of assignment?
+
+		function image(width, height, bitdepth){
+			this.width = width;
+			this.height = height;
+			this.bitdepth = bitdepth;
+			this.rawsize = width * height * bitdepth;
+			this.pixels = width * height;
+			this.print = function() {
+				for(let val in this){
+					if(val !== "print" ){
+						if(val !== "printMore"){
+							console.log(this[val]);
+						}
+					}
+				}
+			}
+		}
+
+		image.prototype.printMore = function(){
+			this.print();
+			if((this.width/16)*9 >= this.height){
+				console.log("Landscape");
+			}else{
+				console.log("Portrait");
+			}
+		}
+
+
+		var image1 = new image(1920,1080,8);
+		var image2 = new image(1080,1920,6);
+		var image3 = new image(1366,768,4);
+
+		image1.printMore();
+		console.log("");
+		image2.printMore();
+		console.log("");
+		image3.printMore();
+
+
+
+d) Create another constructor function Video, which requires width, height, bitdepth,
+duration (in seconds), and framerate (in frames per second; a ‘frame’ is one image in
+the video). Video inherits from Image (i.e. you should call the constructor function
+of Image). In addition to Image it also has a function totalFrames(), which
+returns (based on duration and framerate) the total number of frames in that video.
+Test your implementation by creating a few objects, calling print(), and checking
+the return value of totalFrames(). Can you also call printMore() on these
+objects? 
+
+		function image(width, height, bitdepth){
+			this.width = width;
+			this.height = height;
+			this.bitdepth = bitdepth;
+			this.rawsize = width * height * bitdepth;
+			this.pixels = width * height;
+			this.print = function() {
+				for(let val in this){
+					if(val !== "print" ){
+						if(val !== "totalFrames"){
+							console.log(this[val]);
+						}
+					}
+				}
+			}
+		}
+
+		image.prototype.printMore = function(){
+			this.print();
+			if((this.width/16)*9 >= this.height){
+				console.log("Landscape");
+			}else{
+				console.log("Portrait");
+			}
+		}
+		function video(width, height, bitdepth, duration, framerate){
+			image.call(this,width, height, bitdepth);
+			this.duration = duration;
+			this.framerate = framerate;
+			this.totalFrames = function() {
+					return duration*framerate;
+				}
+			}
+
+
+		var video1 = new video(1920,1080,8, 30, 60)
+		var video2 = new video(1080,1920,8, 15, 30)
+		var video3 = new video(1366,768,8, 10, 120)
+
+		video1.print();
+		console.log(video1.totalFrames());
+		video2.print();
+		console.log(video2.totalFrames());
+		video3.print();
+		console.log(video3.totalFrames());
+

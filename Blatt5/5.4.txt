@@ -1,0 +1,9 @@
+Exercise 4 – Your own Promises
+
+The folder ex4 contains the file ex4.html. The HTML file contains the buttons start,
+accept and reject. When the user clicks on the start button, the method
+handleWithPromise is called already including call-back functions for accept and reject.
+Implement the function handleWithPromise. The function should first set the status
+text to “Promise pending. Please click on a button to accept or reject the promise.” As soon
+as the user clicks on the accept button, the promise should be accepted. When the user
+clicks on the reject button the promise should be rejected.

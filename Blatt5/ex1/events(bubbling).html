@@ -1,0 +1,28 @@
+<html>
+<body>
+
+<div id="outer" style="width:700;height:500;background-color:silver">Outer
+	<div id="inner" style="width:500;height:300;background-color:blue;margin:50px;top:20px;position:relative">Inner</div>
+</div>
+
+<script>
+
+
+function clicked(e) {
+	console.log("This:" + this.id);
+	console.log("Target:" + e.target.id);
+	console.log("Current Target:" + e.currentTarget.id);
+}
+
+function clicked2(e) {
+	console.log("This is the inner DOM:" + this.id);
+}
+
+
+document.getElementById("outer").addEventListener("click",clicked);
+document.getElementById("inner").addEventListener("click",clicked2);
+
+</script>
+</body>
+
+</html>

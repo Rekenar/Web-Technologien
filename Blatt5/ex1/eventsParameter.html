@@ -1,0 +1,25 @@
+<html>
+<body>
+
+<div id="outer" style="width:700;height:500;background-color:silver">Outer
+	<div id="inner" style="width:500;height:300;background-color:blue;margin:50px;top:20px;position:relative">Inner</div>
+</div>
+
+<script>
+
+
+function clicked(e,mode) {
+	if (mode == 'log') {
+		console.log("This:" + this.id);
+		console.log("Target:" + e.target.id);
+		console.log("Current Target:" + e.currentTarget.id);
+		e.stopPropagation();
+	}
+}
+
+document.getElementById("outer").addEventListener("click",(e) => {clicked.call(e.currentTarget,e, 'log');});
+
+</script>
+</body>
+
+</html>

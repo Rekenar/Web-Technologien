@@ -1,0 +1,83 @@
+Exercise 2 – Arrow Functions, Currying, Closures
+
+a) Write code which outputs the current time to the console every 3 seconds. Use
+arrow and non-arrow function syntax.
+
+		setInterval (() => {
+			var today = new Date();
+			var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+			console.log(time);
+			},3000);
+			
+		setInterval(function(){
+			var today = new Date();
+			var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+			console.log(time);
+		},3000);
+
+b) Write code which declares an array and filters non-numbers and negative numbers
+out of that array. The filtered array should be printed to the console. Specify the
+filtering condition using the arrow function syntax.
+
+		var array = [23,"Hallo",-15,"ja",66];
+		console.log(array.filter((entry) => {
+			if(!isNaN(entry)){
+				if(entry >=0){
+					return entry;
+				}
+			}
+		}));
+
+
+
+c) Given the following two JavaScript code snippets, discuss and reason about their
+outputs. What are the functional concepts behind them? 
+
+	1) Gibt result: X XX XXX aus.
+	
+	2) Gibt "Sunday is a rainy day", "Tuesday is a rainy day", "Friday is a rainy day" aus.
+
+d) Create an arrow function which displays a greeting for a person depending on
+her/his name and gender (using e.g. ‘Ms.’ or ‘Mr.’ for the latter) to be called as e.g.
+greet("male")("John Doe"). Use currying to reduce the number of parameters
+of the function, allowing to greet persons of the fixed gender (defining e.g. a
+greetWoman function to be called as greetWoman("Alice")).
+
+		output = (name, gender) => {
+			if(typeof gender === "undefined"){
+				return (gendery) => {
+					if(gendery === "F"){
+						return greetWoman(name);
+					}
+					return greetMan(name);
+				}
+			}
+			if(gender === "F"){
+				return greetWoman(name);
+			}
+			return greetMan(name);
+		}
+		function greetWoman(name){
+			return "Ms " + name;
+		}
+		function greetMan(name){
+			return "Mr " + name;
+		}
+		output1 = output("Philipp");
+
+		console.log(output1("M"));
+		console.log(output("Philipp","M"));
+
+
+e) Inspect the following code that increments the counter every time we click on either
+button:
+
+
+The above code increments the global clickCount, as a result, this variable stores the
+number of clicks for two buttons together. Change this code to count the clicks on
+firstButton and secondButton separately. Do not introduce two different counters
+for this, all clicks must be counted using clickCount still declared once. Use closures
+to solve this problem.
+
+
+

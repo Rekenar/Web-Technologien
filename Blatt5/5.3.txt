@@ -1,0 +1,25 @@
+Exercise 3 – Working with Promises
+
+This exercise only works when using a web server. Therefore, place the provided folder ex3
+in the document root of your web server. The folder contains the files galleryA.htm,
+galleryA.js, galleryB.htm, galleryB.js and gallery.json. In the
+subfolder details, there is one json file containing the description of each image.
+
+
+a) Write a method loadImages(domElement, jsonURL) in galleryA.js
+that requests the file jsonURL via the JS fetch API.
+The json file contains a descURL property for each image. The descURL refers to
+another json file that contains one single image description.
+Like in Assignment 2, create a div for each image containing the image element and
+the description. However, now the description needs to be loaded with an additional
+fetch request from the description json file of each picture.
+In case some description file cannot be opened the description field should have the
+value “error, description could not be loaded”.
+The order of images shown on the page galleryA.html must be the same as in
+the gallery.json file.
+For part A implement the requests using “then” and “catch” of promises.
+
+
+
+b) Create an alternative implementation and store it in galleryB.js. In this
+implementation use async functions, await and try / catch blocks.

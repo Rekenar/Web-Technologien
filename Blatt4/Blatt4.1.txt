@@ -1,0 +1,49 @@
+Exercise 1 – Scope, Closures
+
+Answer the following questions:
+
+
+a) What does the JavaScript Window Object represent and how can it be used?
+
+		Das Window Object stellt ein Fenster im Browser dar. 
+		Wenn ein Dokument Frames beinhaltet erstellt der Browser für jeden Frame ein Window Object.
+		Alle globalen Variablen und Funktionen gehören zum Window Object.
+		Auch DOM gehört zum Window Object.
+
+b) What is the notion of scope in JavaScript?
+
+		Der Bereich der Zugänglichkeit von variablen in JavaScript.
+		Es gibt zwei Arten von Zugänglichkeit:
+				1)Lokal
+				2)und Global.
+
+c) What is the difference between declaring variables with var, let, const or no
+keyword at all? What happens when 'use strict' is invoked for a script?
+
+		var = sichtbar in ganzer Funktion
+		let = nur sichtbar im eigenen Block und Sub-Blocks
+		const = nur sichtbar im eigenen Block und kann nicht geändert werden
+		no keyword = global sichtbar
+		use strict = lässt keine nicht definierten variablen zu
+
+d) Given the following two JavaScript code snippets, compare and explain their outputs.
+
+	1)Gibt Block scope i = block scope, Function scope i = block scope, block scope aus, da var variable überschrieben wird.
+	
+	2)Gibt Block scope i = block scope, Function scope i = function scope, function scope aus, da let variable nicht überschrieben wird.
+
+e) Given the following three JavaScript code snippets, compare and explain their
+outputs (which are the same, which are different, and why).
+
+		setTimeout(() => {console.log(i);},1000); 		ist eine Funktion welche nach "1000ms" erst aktiviert wird.
+
+
+	1)	Gibt "the end",3,3,3 aus, da bei setTimeout gewartet wird dann wird the end ausgegeben und danach wird die Funktion setTimeout ausgeführt. 
+	
+	2)	Gibt Fehler aus, da console.log(i) auf i zugreifen soll was nur im for-Block definiert ist.
+	
+	3)	Gibt "the end", 0, 1, 2 aus, (siehe 1)
+	
+	
+	
+	

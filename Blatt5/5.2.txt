@@ -1,0 +1,19 @@
+Exercise 2 – JSON & HTTP Requests
+
+This exercise only works when using a web server. Therefore, place the provided folder ex2
+in the document root of your web server (see Assignment Sheet 1).
+
+The folder contains the files gallery.html, gallery.js and gallery.json.
+What is an asynchronous request? How does it differ from a synchronous request? How are
+asynchronous requests supported with JS´s XMLHttpRequest?
+
+
+Implement the method loadImages(domElement, jsonURI)in gallery.js that
+requests the file jsonURI via an asynchronous XMLHttpRequest. 
+For each image in the JSON file, a div element within domElement should be created.
+Within each div there should be an image element with the image url as source.
+Below the image there should be the description.
+
+
+
+Test the implementation with the page gallery.html. 

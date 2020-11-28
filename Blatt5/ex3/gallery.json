@@ -1,0 +1,20 @@
+{
+    "1":
+    {
+        "dataSmall": "http://localhost/Blatt5/ex2/images/beach_small.jpg",
+        "dataBig": "http://localhost/Blatt5/ex2/images/beach.jpg",
+        "descURL": "http://localhost/Blatt5/ex3/details/GoletaBeach.json"
+    },
+    "2":
+    {
+        "dataSmall": "http://localhost/Blatt5/ex2/images/bus.jpg",
+        "dataBig": "http://localhost/Blatt5/ex2/images/bus_lg.jpg",
+		"descURL": "http://localhost/Blatt5/ex3/details/HippieBus.json"
+	},
+    "3":
+    {
+        "dataSmall": "http://localhost/Blatt5/ex2/images/snail_small.jpg",
+        "dataBig": "http://localhost/Blatt5/ex2/images/snail.jpg",
+		"descURL": "http://localhost/Blatt5/ex3/details/seaSnail_ERROR.json"
+    }
+}
