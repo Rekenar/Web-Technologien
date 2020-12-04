@@ -30,7 +30,6 @@ function loadImages(domElement,absoluteURL) {
 			
 			div.appendChild(imagesmall);
 			domElement.appendChild(div);
-			
 		}
 	})
 }
