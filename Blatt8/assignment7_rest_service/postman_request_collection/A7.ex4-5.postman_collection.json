@@ -1,0 +1,213 @@
+{
+	"info": {
+		"_postman_id": "78bca504-2386-4126-8cf0-4c68597b24e8",
+		"name": "A7.ex4-5",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "4.1 Get all books",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/books",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4.2 Get book by ISBN",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/books/1617290084",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"books",
+						"1617290084"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4.3 Rent book",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"rented\": true\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/books/1617290084",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"books",
+						"1617290084"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4.4 Return book",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"rented\": false\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/books/1617290084",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"books",
+						"1617290084"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5.1 Create book",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"MY Great Book\",\n    \"isbn\": \"12345\",\n    \"pageCount\": 100,\n    \"publishedDate\": {\n        \"$date\": \"2015-06-03T00:00:00.000-0700\"\n    },\n    \"thumbnailUrl\": \"https://link.to/image.jpg\",\n    \"status\": \"PUBLISH\",\n    \"authors\": [\n        \"My Self\"\n    ],\n    \"categories\": [\n        \"Procrastination\"\n    ],\n    \"rented\": false\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/books",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5.2 Delete book",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/books/12345",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"books",
+						"12345"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5.3 Query Parameters 1/2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/books/?title=node",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"books",
+						""
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "node"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5.3 Query Parameters 2/2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/books/?title=node&authors=Mike",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"books",
+						""
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "node"
+						},
+						{
+							"key": "authors",
+							"value": "Mike"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

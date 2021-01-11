@@ -1,0 +1,82 @@
+Ex 4
+****
+a)	What are RESTful Services or RESTful APIs?
+
+REST = Representational State Transfer.
+Predefined sets of stateless operations over Web Resources.
+Web Resource: Anything that can be addressed via a URI: E.g. Web Page, XML, JSON, …
+Can in principal be based on any protocol. However, usually HTTP(S) is used.
+Guides us how to structure an RPC based service.
+Introduced in the Dissertation Theses of Roy Thomas Fielding (2000).
+
+Rest Principals / Constraints:
+
+- Client Server Architecture
+- Statelessness
+- Cacheability
+- Layered System
+- Code on demand (optional)
+  any technology that sends executable software code from a server computer
+  to a client computer upon request from the client's software.
+  Some well-known examples of the code on demand paradigm on the web
+  are Java applets, Adobe's ActionScript language for the Flash player,
+  and JavaScript.
+- Uniform Interface
+  Using interfaces to decouple classes from the implementation of their
+  dependencies is a pretty old concept. By REST you use the same concept
+  to decouple the client from the implementation of the REST service.
+  In order to do define such an interface (contract between the client
+  and the service) you have to use standards. This is because if you
+  want an internet size network of REST services, you have to enforce
+  global concepts, like standards to make them understand each other.
+
+b) What is the notion of ‘Uniform Interface’ in a REST Service?
+
+from https://stackoverflow.com/questions/25172600/rest-what-exactly-is-meant-by-uniform-interface:
+
+Identification of resources:
+You use the URI (IRI) standard to identify a resource. In this case a resource is a web document.
+
+Manipulation of resources through these representations:
+You use the HTTP standard to describe communication. So for example GET means that you want to
+retrieve data about the URI identified resource. You can describe an operation with a HTTP method and an URI.
+
+Self-descriptive messages:
+You use standard MIME types and (standard) RDF vocabs to make messages self-descriptive.
+So the client can find the data by checking the semantics, and it don't have to know the
+application specific data structure the service uses.
+
+Hypermedia as the engine of application state (A.K.A. HATEOAS):
+You use hyperlinks and possibly URI templates to decouple the client from the
+application specific URI structure. You can annotate these hyperlinks with semantics e.g. IANA link relations,
+so the client will understand what they mean.
+
+VO:
+
+- Resource identification in requests, resources independent from representation.
+- Resource manipulation through representations.
+- Self-descriptive messages.
+- Hypermedia as the engine of application state.
+- After requesting an initial URI, the client can find all other operations via links.
+
+c)	What is the difference between HTTP methods GET, POST, PUT and DELETE?
+    How should they be used?
+
+While REST Services are not bound to a specific protocol, the predominant
+protocol is HTTP(S).
+In case of HTTP the set of operations over resources are simply the HTTP
+methods:
+
++-----------+-----------------------------------------+-------------------------------------------------------------------------------------------------------+
+| Operation | URI refers to a Collection              | URI refers to an Element                                                                              |
++-----------+-----------------------------------------+-------------------------------------------------------------------------------------------------------+
+| GET       | List URIs. No side effects!             | Retrieve a representation of the element. E.g. JSON, XML according to accept header. No side effects! |
++-----------+-----------------------------------------+-------------------------------------------------------------------------------------------------------+
+| POST      | Add a new entry to a collection.        | -                                                                                                     |
++-----------+-----------------------------------------+-------------------------------------------------------------------------------------------------------+
+| PUT       | Replace entire collection with new one. | Replace the element.                                                                                  |
++-----------+-----------------------------------------+-------------------------------------------------------------------------------------------------------+
+| PATCH     | -                                       | Update the element. (less used)                                                                       |
++-----------+-----------------------------------------+-------------------------------------------------------------------------------------------------------+
+| DELETE    | Delete entire Collection                | Delete element.                                                                                       |
++-----------+-----------------------------------------+-------------------------------------------------------------------------------------------------------+

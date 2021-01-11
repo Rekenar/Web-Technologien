@@ -1,0 +1,15 @@
+<form>
+    <label for="title">Title</label>
+    <input type="text" id="title" formControlName="title" required/><br><br>
+
+    <label for="isbn">ISBN</label>
+    <input type="text" id="isbn" formControlName="isbn" required/><br><br>
+
+    <label for="rented">rented</label>
+    <select id = "rented" formControlName= "rented">
+        <option value = "true">Rented</option>
+        <option value = "false">Not Rented</option>
+    </select>
+    <button type = "submit" [disabled]="!bookForm.valid">submit</button>
+</form>
+

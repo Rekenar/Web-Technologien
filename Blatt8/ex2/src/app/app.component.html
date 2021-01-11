@@ -1,0 +1,13 @@
+
+<h1>{{ title }}</h1>
+<div *ngFor = "let book of books">
+  <p *ngIf="book.rented" style="color:green;">{{book.title}}</p>
+
+  <p *ngIf="!book.rented">{{book.title}}</p>
+  
+  <ul>
+    <li>
+      Author: {{ book.author }}
+    </li>
+  </ul>
+</div>

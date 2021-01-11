@@ -1,0 +1,13 @@
+{
+  "database": {
+    "file": "book_library.json",
+    "findby_vals": ["authors", "title", "isbn", "categories"]
+  },
+  "server": {
+    "host": "localhost",
+    "port": 3000
+  },
+  "admin": {
+      "pass": "secret"
+  }
+}
